@@ -31,3 +31,23 @@ Return the size of the set, which represents the total count of distinct integer
     Time complexity : O(n*d) where n = number of elements in the array and d = number of digits in the array. Practically, since integers are ≤ 10^9, d ≤ 10, so the algorithm runs effectively in O(n) time.
     Space complexity : O(n)
     
+    
+    If the constraints of the input array is given we can use a boolean array to mark the number that appear either as the array element or the reversed version of the array element . That would reduce the space complexity .
+    class Solution {
+    public int countDistinctIntegers(int[] nums) {
+        int count = 0;
+        boolean[] seen = new boolean[1000001];
+        for (int x : nums) {
+            if (!seen[x]) count++;
+            seen[x] = true;
+            int y = 0;
+            while (x > 0) {
+                y = y * 10 + (x % 10);
+                x /= 10;
+            }
+            if (!seen[y]) count++;
+            seen[y] = true;
+        }
+        return count;
+    }
+}
