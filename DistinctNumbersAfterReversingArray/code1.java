@@ -17,4 +17,17 @@ class Solution {
 }
 
 
-In this approach we traverse through the array one by one , store the number in the set , reverse the number and then store the reversed number in the set . [A set in java stores only distinct items] .
+Approach
+
+Traverse the array nums one by one.
+
+For each number:
+
+Add the number itself to a set (to keep only distinct elements).
+
+Reverse the digits of the number and add the reversed number to the set.
+
+Return the size of the set, which represents the total count of distinct integers (original + reversed). [A set in java stores only distinct items] .
+    Time complexity : O(n*d) where n = number of elements in the array and d = number of digits in the array. Practically, since integers are ≤ 10^9, d ≤ 10, so the algorithm runs effectively in O(n) time.
+    Space complexity : O(n)
+    
