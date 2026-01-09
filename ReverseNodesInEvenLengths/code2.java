@@ -9,8 +9,8 @@
  * }
  */
 class Solution {
-    public static ListNode reverse(ListNode node) {
-        if(node == null || node.next == null) return node;
+    public static void reverse(ListNode node) {
+        if(node == null || node.next == null) return;
         ListNode prev = null;
         ListNode nextNode = node.next;
         while(node != null){
@@ -20,12 +20,9 @@ class Solution {
             if(nextNode != null)
                 nextNode = nextNode.next;
         }
-        ListNode n = prev;
-        return prev;
     }
     public ListNode reverseEvenLengthGroups(ListNode head) {
         ListNode prevNode = null;
-        ListNode nextNode = head.next;
         ListNode temp = head;
         ListNode kthNode = temp;
         int group = 1;
@@ -44,16 +41,15 @@ class Solution {
             }
 
             if(count < group) {
-                if(count % 2 != 0)
-                    break;
-                else {
+                if(count % 2 == 0) {
                     reverse(temp);
                     prevNode.next = kthNode;
                     break;
                 }
+                break;
             }
 
-            nextNode = kthNode.next;
+            ListNode nextNode = kthNode.next;
             if(group % 2 != 0) {
                 temp = nextNode;
                 group++;
