@@ -20,7 +20,7 @@ class Solution {
         if(k > len) {
             k = k % len;
         }
-        else if(k % len == 0) k = 0;
+        else if(k % len == 0) return head;
         ListNode temp = head;
         for(int i=2;i<=(len-k);i++) {
             temp = temp.next;
