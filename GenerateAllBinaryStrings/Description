@@ -1,0 +1,3 @@
+Generate all the binary strings of given length n which does not contain consequetive 1's in lexographic order. 
+Example : length = n = 3
+Strings - 000 , 001 , 010  , 100 , 101
