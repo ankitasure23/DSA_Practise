@@ -7,7 +7,9 @@ public class SubSetSum {
             list.add(sum);
             return;
         }
+        //include current element
         findSubsets(list, nums, sum + nums[i], i + 1);
+        //exclude current element
         findSubsets(list, nums, sum, i + 1);
     }
 
