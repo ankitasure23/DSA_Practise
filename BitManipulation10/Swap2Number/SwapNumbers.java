@@ -1,5 +1,5 @@
 
-package DSA_Practise.BitManipulation10;
+package BitManipulation10.Swap2Number;
 
 class SwapNumbers {
 
