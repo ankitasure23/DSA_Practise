@@ -1,4 +1,4 @@
-package DSA_Practise.BitManipulation10.power;
+package DSA_Practise.BitManipulation10.OddOrEven;
 
 public class checkOddOrEven {
     public static void main(String[] args) {
