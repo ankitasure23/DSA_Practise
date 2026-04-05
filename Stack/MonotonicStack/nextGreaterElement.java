@@ -59,3 +59,12 @@ class Solution {
         return arr;
     }
 }
+
+/*
+ * Time Complexity
+ * Each element is pushed once and popped at most once.
+ * A single iteration may pop multiple elements, but total pops ≤ n.
+ * Total operations = pushes + pops = n + n = O(n).
+ * Individual steps can be costly, but amortized work is linear.
+ * ✅ Key takeaway: “Each element is processed at most twice → O(n) overall.
+ */
