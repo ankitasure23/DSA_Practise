@@ -13,44 +13,32 @@ package Stack.MinStack;
 
 import java.util.*;
 
-class MinStack {
-    Stack<Long> stack = new Stack<>();
-    private long min;
+public class MinStack1 {
+    Stack<int[]> stack = new Stack<>();
 
-    public MinStack() {
+    public MinStack1() {
 
     }
 
     public void push(int val) {
-        long v = val;
         if (stack.isEmpty()) {
-            min = v;
-            stack.push(v);
+            stack.push(new int[] { val, val });
             return;
-        } else if (v > min)
-            stack.push(v);
-        else {
-            stack.push(2 * v - min);
-            min = v;
         }
+        stack.push(new int[] { val, (val < getMin()) ? val : getMin() });
+
     }
 
     public void pop() {
-        if (stack.isEmpty())
-            return;
-        long x = stack.pop();
-        if (x < min) {
-            min = 2 * min - x;
-        }
+        stack.pop();
     }
 
     public int top() {
-        long x = stack.peek();
-        return (int) ((x > min) ? x : min);
+        return stack.peek()[0];
     }
 
     public int getMin() {
-        return (int) min;
+        return stack.peek()[1];
     }
 }
 
