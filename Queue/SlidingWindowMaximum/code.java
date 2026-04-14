@@ -22,7 +22,7 @@ Example 2:
 
 Input: nums = [1], k = 1
 Output: [1] */
-package Stack.SlidingWindowMaximum;
+package Queue.SlidingWindowMaximum;
 
 import java.util.*;
 
