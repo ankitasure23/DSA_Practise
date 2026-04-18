@@ -1,16 +1,40 @@
 package Heaps;
 
 public class implementMaxHeap {
-    int[] arr = new int[100];
-    int size = 0;
+    static int[] arr;
+    static int size;
+    static int capacity;
+
+    implementMaxHeap(int n) {
+        arr = new int[n + 1];
+        arr[0] = -1;
+        size = 0;
+        capacity = n;
+    }
+
+    static int parent(int i) {
+        return i / 2;
+    }
+
+    static int leftChild(int i) {
+        return 2 * i;
+    }
+
+    static int rightChild(int i) {
+        return 2 * i + 1;
+    }
 
     void insert(int n) {
+        if (size == capacity) {
+            System.out.println("Heap is full");
+            return;
+        }
         size++;
         int index = size;
         arr[index] = n;
 
         while (index > 1) {
-            int parent = index / 2;
+            int parent = parent(index);
             if (arr[parent] < arr[index]) {
                 int temp = arr[parent];
                 arr[parent] = arr[index];
@@ -63,8 +87,8 @@ public class implementMaxHeap {
 
     void heapify(int[] arr, int n, int i) {
         int largest = i;
-        int left = 2 * i;
-        int right = 2 * i + 1;
+        int left = leftChild(i);
+        int right = rightChild(i);
 
         if (left <= n && arr[left] > arr[largest]) {
             largest = left;
@@ -80,8 +104,20 @@ public class implementMaxHeap {
         }
     }
 
+    static int getSize() {
+        return size;
+    }
+
+    static int getMax() {
+        if (size == 0) {
+            System.out.println("Heap is empty");
+            return -1;
+        }
+        return arr[1];
+    }
+
     public static void main(String[] args) {
-        implementMaxHeap maxHeap = new implementMaxHeap();
+        implementMaxHeap maxHeap = new implementMaxHeap(5);
         maxHeap.insert(50);
         maxHeap.insert(55);
         maxHeap.insert(53);
